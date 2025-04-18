@@ -1,0 +1,12 @@
+- name: update && upgrade
+  hosts: allservers
+  become: yes
+  tasks:
+    - name: Update APT cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Upgrade packages
+      ansible.builtin.apt:
+        upgrade: full
+

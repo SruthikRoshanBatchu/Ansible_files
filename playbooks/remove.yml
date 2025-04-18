@@ -1,0 +1,12 @@
+---
+- name: removing the package
+  hosts: case01
+  become: true
+
+  tasks:
+    - name: remove the package
+      apt:
+        name: "{{ name }}"
+        state: absent
+        autoremove: yes
+

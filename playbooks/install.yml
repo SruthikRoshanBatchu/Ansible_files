@@ -1,0 +1,10 @@
+---
+- name: Package Installation
+  become: true
+  hosts: "{{ hosts }}"
+  tasks:
+    - name: "{{ name }} installation"
+      apt:
+        name: "{{ name }}"
+        state: present
+

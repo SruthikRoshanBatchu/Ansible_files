@@ -1,0 +1,8 @@
+- name: Ansible Installation
+  hosts: case01
+  become: yes
+  tasks:
+    - name: Ansible Package Installation
+      apt:
+       update-cache: true
+       name: ansible

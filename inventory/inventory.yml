@@ -1,0 +1,29 @@
+all:
+  children:
+    allservers:
+      hosts:
+        dev01:
+          ansible_host: 172.31.14.247
+        dev02:
+          ansible_host: 172.31.3.102
+        dep01:
+          ansible_host: 172.31.9.129
+        dep02:
+          ansible_host: 172.31.7.224
+    devservers:
+      hosts:
+        dev01:
+        dev02:
+    depservers:
+      hosts:
+        dep01:
+        dep02:
+    case01:
+      hosts:
+        dev01:
+        dep01:
+    case02:
+      hosts:
+        dev02:
+        dep02:
+

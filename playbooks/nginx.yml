@@ -1,0 +1,7 @@
+---
+- name: Install and configure NGINX
+  hosts: case01
+  become: yes
+  roles:
+    - nginx
+

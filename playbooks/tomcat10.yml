@@ -1,0 +1,8 @@
+- name: tomcat10 installation
+  host: allservers
+  become: yes
+  tasks:
+    name: tomcat installation
+    ansible.builtin.apt:
+      name: tomcat10
+      state: present

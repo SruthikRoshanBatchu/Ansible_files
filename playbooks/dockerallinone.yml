@@ -1,0 +1,38 @@
+---
+- name: docker installation, docker image pull and docker container run
+  hosts: case01
+  become: yes
+
+  vars_prompt:
+    - name: docker_image_name
+      prompt: "Enter the docker image name"
+      private: no
+
+    - name: docker_container_name
+      prompt: "Enter the docker container name"
+      private: no
+
+    - name: container_port
+      prompt: "Enter the container port number"
+      private: no
+
+  tasks:
+    - name: docker installation
+      ansible.builtin.apt:
+        name: docker.io
+        state: present
+
+    - name: pull docker image
+      community.docker.docker_image:
+        name: "{{ docker_image_name }}"
+        tag: latest
+        source: pull
+
+    - name: docker container run
+      community.docker.docker_container:
+        image: "{{ docker_image_name }}"
+        name: "{{ docker_container_name }}"
+        state: started
+        ports:
+          - "{{ container_port }}:80"
+
