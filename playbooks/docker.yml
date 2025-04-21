@@ -1,9 +1,0 @@
-- name: Docker installation
-  become: yes
-  hosts: allservers
-  tasks:
-    - name: Install Docker
-      ansible.builtin.apt:
-        name: docker.io
-        state: present
-
